@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Heading
+
+@{
+    ViewBag.Title = "UpdateHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h2>Update Heading</h2>
+
+@using (Html.BeginForm("UpdateHeading", "UserWriter", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Başlık ID")
+    @Html.TextBoxFor(x => x.HeadingID, new { @class = "form-control disabled", @readonly = true })
+    <br />
+    @Html.Label("BAŞLIĞIN TARİHİ")
+    @Html.TextBoxFor(x => x.HeadingDate, "{0:dd.MM.yyyy}", new { @class = "form-control disabled", @readonly = true })
+    @Html.HiddenFor(x => x.WriterID)
+    <br />
+    @Html.HiddenFor(x=>x.WriterID)
+    <br />
+    @Html.Label("BAŞLIK ADI")
+    @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+    <br />
+    @Html.Label("KATEGORİ")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}
+

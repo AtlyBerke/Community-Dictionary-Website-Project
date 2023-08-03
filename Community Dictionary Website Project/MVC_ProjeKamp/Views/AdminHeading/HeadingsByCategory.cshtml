@@ -1,0 +1,23 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+@{
+    ViewBag.Title = "HeadingsByCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="color:red">Kategoriye Göre Başlık</h2>
+<br />
+<table class="table table-bordered">
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.HeadingName</td>
+            <td>@x.Writer.WriterName @x.Writer.WriterSurname - @x.Writer.WriterMail</td>
+            <td>@x.HeadingDate.ToShortDateString()</td>
+           
+        </tr>
+    }
+</table>
+

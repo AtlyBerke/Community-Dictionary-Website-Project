@@ -1,0 +1,13 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>POP-UP OLARAK HAKKIMIZDA EKLEME SAYFASI</h2>
+<br />
+
+<br />
+@Html.Action("AboutPartial","AdminAbout")
