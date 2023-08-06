@@ -42,6 +42,8 @@ namespace MVC_ProjeKamp.Controllers
             ValidationResult results = mv.Validate(message); //writervalidator sınıfında olan değerlere göre writer nesnesini validate(kontrol) et.
             if (results.IsValid)
             {
+                string p = (string)Session["AdminUserName"];
+                message.SenderMail = p;
                 message.MessageDate =DateTime.Parse(DateTime.Now.ToShortDateString());
                 mg.MessageAddBL(message);
                 return RedirectToAction("Index");
